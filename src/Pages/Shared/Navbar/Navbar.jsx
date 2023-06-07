@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const user = true
+  const user = false
 //   const {user, logOut} = useContext(AuthContext);
   // console.log(userName, userPhotoUrl);
 //   console.log(user)
@@ -16,21 +16,21 @@ const handleLogout = ()=>{
     console.log('noman')
 }
   return (
-    <div className="bg-base-200 mt-0 text-black bg-transparent bg-fixed">
+    <div className="bg-base-200 mt-0  bg-transparent fixed  z-10 w-full text-white ">
       <div className=" px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           {/* Logo Section */}
           <Link to="/" className="inline-flex items-center">
             <div className="flex items-center gap-2">
               <img
-                className="w-10 "
-                src="https://i.ibb.co/Kbb9BWV/6951198.png"
+                className=" "
+                src="https://dtdance.wpenginepowered.com/wp-content/uploads/2017/08/dance-logo-dark-1.png"
                 alt=""
               />
-              <p className="text-xl font-bold">
+              {/* <p className="text-xl font-bold">
                 <span className="text-[#32BDF2]">Toy</span>
                 <span className="text-[#FF6A98]">Tutors</span>
-              </p>
+              </p> */}
             </div>
           </Link>
 
@@ -47,11 +47,20 @@ const handleLogout = ()=>{
             </li>
             <li>
               <NavLink
-                to="/allToys"
+                to="/instructors"
                 className={({ isActive }) => (isActive ? "active" : "default")}
-                title="All Toys"
+                title="Instructors"
               >
-                All Toys
+                Instructors
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/classes"
+                className={({ isActive }) => (isActive ? "active" : "default")}
+                title="Classes"
+              >
+                Classes
               </NavLink>
             </li>
             {user && (
@@ -64,32 +73,11 @@ const handleLogout = ()=>{
                     }
                     title="My Toys"
                   >
-                    My Toys
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/addToys"
-                    className={({ isActive }) =>
-                      isActive ? "active" : "default"
-                    }
-                    title="Add Toys"
-                  >
-                    Add Toys
+                    Dashboard
                   </NavLink>
                 </li>
               </>
             )}
-
-            <li>
-              <NavLink
-                to="/blog"
-                className={({ isActive }) => (isActive ? "active" : "default")}
-                title="Blog"
-              >
-                Blog
-              </NavLink>
-            </li>
           </ul>
           <div className="hidden lg:flex">
             <div
