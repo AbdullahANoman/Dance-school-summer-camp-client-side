@@ -1,22 +1,21 @@
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-// import { AuthContext } from "../Provider/AuthProvider";
+import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
+
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const user = false
-//   const {user, logOut} = useContext(AuthContext);
+  // const user = false
+  const {user, logOut} = useContext(AuthContext);
   // console.log(userName, userPhotoUrl);
-//   console.log(user)
-//   const handleLogout = () => {
-//     logOut();
-//   };
-const handleLogout = ()=>{
-    console.log('noman')
-}
+  console.log(user)
+  const handleLogout = () => {
+    logOut();
+  };
+
   return (
-    <div className="bg-base-200 mt-0  bg-transparent fixed  z-10 w-full text-white ">
+    <div className="absolute mt-0  bg-transparent   z-10 w-full text-white ">
       <div className=" px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-8">
         <div className="relative flex items-center justify-between">
           {/* Logo Section */}
