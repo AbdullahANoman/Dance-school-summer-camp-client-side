@@ -14,6 +14,10 @@ const Navbar = () => {
     logOut();
   };
 
+  const isStudent =false ;
+  const isInstructor = false ;
+  const isAdmin = true
+
   return (
     <div className="absolute mt-0  bg-transparent   z-10 w-full text-white ">
       <div className=" px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-8">
@@ -26,10 +30,6 @@ const Navbar = () => {
                 src="https://dtdance.wpenginepowered.com/wp-content/uploads/2017/08/dance-logo-dark-1.png"
                 alt=""
               />
-              {/* <p className="text-xl font-bold">
-                <span className="text-[#32BDF2]">Toy</span>
-                <span className="text-[#FF6A98]">Tutors</span>
-              </p> */}
             </div>
           </Link>
 
@@ -62,11 +62,41 @@ const Navbar = () => {
                 Classes
               </NavLink>
             </li>
-            {user && (
+            {isStudent && (
               <>
                 <li>
                   <NavLink
-                    to="/myToys"
+                    to="/dashBoard/student"
+                    className={({ isActive }) =>
+                      isActive ? "active" : "default"
+                    }
+                    title="My Toys"
+                  >
+                    Dashboard
+                  </NavLink>
+                </li>
+              </>
+            )}
+            {isInstructor && (
+              <>
+                <li>
+                  <NavLink
+                    to="/dashBoard/addClass"
+                    className={({ isActive }) =>
+                      isActive ? "active" : "default"
+                    }
+                    title="My Toys"
+                  >
+                    Dashboard
+                  </NavLink>
+                </li>
+              </>
+            )}
+            {isAdmin && (
+              <>
+                <li>
+                  <NavLink
+                    to="/dashBoard/manageClasses"
                     className={({ isActive }) =>
                       isActive ? "active" : "default"
                     }

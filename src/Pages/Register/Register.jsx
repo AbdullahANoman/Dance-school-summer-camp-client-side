@@ -1,8 +1,9 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
-import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
+
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 
 const Register = () => {
   const [passError, setPassError] = useState("");
