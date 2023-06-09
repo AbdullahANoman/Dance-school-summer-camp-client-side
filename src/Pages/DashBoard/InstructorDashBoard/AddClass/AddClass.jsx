@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../../Provider/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+
 const AddClass = () => {
   const { user } = useContext(AuthContext);
 
@@ -13,55 +15,54 @@ const AddClass = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data, event) => {
-    // console.log(data);
-    const { category, name, recipe, price } = data || {};
-    const imageFile = event.target.image.files[0];
-    const formData = new FormData();
-    formData.append("image", imageFile);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You Want To Add This Class!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Add it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const { classesName, instructorName, email, price } = data || {};
+        const imageFile = event.target.image.files[0];
+        const formData = new FormData();
+        formData.append("image", imageFile);
 
-    const url = `https://api.imgbb.com/1/upload?key=${
-      import.meta.env.VITE_IMGBB_KEY
-    }`;
-    fetch(url, {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((imgData) => {
-        const imgUrl = imgData.data.display_url;
-        const newItem = {
-          classesName,
-          instructorName,
-          status: "pending",
-          price: parseFloat(price),
-          image: imgUrl,
-          email
-        };
-        console.log(newItem);
-        axiosSecure.post("/classes", newItem).then((data) => {
-          const alert = data?.data?.insertedId;
-          if (alert) {
-            reset();
-          }
-        });
-        // fetch("http://localhost:5000/menu", {
-        //   method: "POST",
-        //   headers: {
-        //     "content-type": "application/json",
-        //   },
-        //   body: JSON.stringify(newItem),
-        // })
-        //   .then((res) => res.json())
-        //   .then((data) => console.log(data));
-      });
-    // reset();
+        const url = `https://api.imgbb.com/1/upload?key=${
+          import.meta.env.VITE_IMGBB_KEY
+        }`;
+        fetch(url, {
+          method: "POST",
+          body: formData,
+        })
+          .then((res) => res.json())
+          .then((imgData) => {
+            const imgUrl = imgData.data.display_url;
+            const newItem = {
+              classesName,
+              instructorName,
+              status: "pending",
+              price: parseFloat(price),
+              image: imgUrl,
+              email,
+            };
+            console.log(newItem);
+            axiosSecure.post("/classes", newItem).then((data) => {
+              const alert = data?.data?.insertedId;
+              if (alert) {
+                Swal.fire("Added!", "Your file has been Added.", "success");
+                reset();
+              }
+            });
+          });
+      }
+    });
   };
   return (
-    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
     <div className="w-4/5 bg-gray-200 px-10 py-20 rounded-xl">
       <form onSubmit={handleSubmit(onSubmit)} className="w-full">
-        {/* register your input into the hook by invoking the "register" function */}
-
         <div className="flex w-full gap-2">
           <div className="form-control w-1/2">
             <label className="label">
