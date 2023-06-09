@@ -25,7 +25,8 @@ const AddClass = () => {
       confirmButtonText: "Yes, Add it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        const { classesName, instructorName, email, price } = data || {};
+        const { classesName, instructorName, email, price, availableSeats } =
+          data || {};
         const imageFile = event.target.image.files[0];
         const formData = new FormData();
         formData.append("image", imageFile);
@@ -47,6 +48,7 @@ const AddClass = () => {
               price: parseFloat(price),
               image: imgUrl,
               email,
+              seats: parseFloat(availableSeats),
             };
             console.log(newItem);
             axiosSecure.post("/classes", newItem).then((data) => {
