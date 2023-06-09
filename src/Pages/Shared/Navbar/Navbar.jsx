@@ -2,21 +2,28 @@ import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
+import useAdmin from "../../../Hooks/useAdmin";
+import useInstructor from "../../../Hooks/useInstructor";
+import useStudent from "../../../Hooks/useStudent";
 
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // const user = false
-  const {user, logOut} = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   // console.log(userName, userPhotoUrl);
-  console.log(user)
+  console.log(user);
   const handleLogout = () => {
     logOut();
   };
+  
 
-  const isStudent =false ;
-  const isInstructor = false ;
-  const isAdmin = true
+  // const isStudent = regUsers.find((regUser) => regUser?.email == user?.email);
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
+  const [isStudent] =  useStudent()
+
+  console.log('in nav' , isAdmin,isInstructor, isStudent)
 
   return (
     <div className="absolute mt-0  bg-transparent   z-10 w-full text-white ">
@@ -134,7 +141,9 @@ const Navbar = () => {
                 </>
               ) : (
                 <Link to="/login">
-                  <button className="btn bg-[#32BDF2] border-none hover:bg-[#FF6A98] hidden lg:flex ">Login</button>
+                  <button className="btn bg-[#32BDF2] border-none hover:bg-[#FF6A98] hidden lg:flex ">
+                    Login
+                  </button>
                 </Link>
               )}
             </div>

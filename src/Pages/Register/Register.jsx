@@ -7,7 +7,8 @@ import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 
 const Register = () => {
   const [passError, setPassError] = useState("");
-  const { createUser, updatePhotoAndName, logOut ,googleSignIn } = useContext(AuthContext);
+  const { createUser, updatePhotoAndName, logOut, googleSignIn } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -30,7 +31,8 @@ const Register = () => {
           console.log("registered user ", user);
           updatePhotoAndName(name, photoUrl)
             .then(() => {
-              const saveUser = { name, email };
+              const saveUser = { name: name, email: email, role: "Student" };
+              console.log(saveUser);
               fetch("http://localhost:5000/users", {
                 method: "POST",
                 headers: {
@@ -54,7 +56,6 @@ const Register = () => {
                   }
                 });
               reset();
-              logOut();
               navigate(from, { replace: true });
             })
             .catch((error) => console.log(error.message));
@@ -62,30 +63,32 @@ const Register = () => {
         .catch((error) => {
           console.log(error.message);
         });
-        
     }
   };
   const handleGoogle = () => {
     googleSignIn()
       .then((result) => {
         const googleLoggedUser = result.user;
-        const savedUser = {name: googleLoggedUser.displayName, email: googleLoggedUser.email}
+        const saveUser = {
+          name: googleLoggedUser.displayName,
+          email: googleLoggedUser.email,
+          role: "Student",
+        };
         console.log(googleLoggedUser);
-        fetch('http://localhost:5000/users',{
-          method: 'POST',
+        fetch("http://localhost:5000/users", {
+          method: "POST",
           headers: {
-            'content-type': 'application/json'
+            "content-type": "application/json",
           },
-          body : JSON.stringify(savedUser)
-          
+          body: JSON.stringify(saveUser),
         })
-        .then(res=>res.json())
-        .then(data=>{
-          if(data.insertedId){
-            alert('data was added')
-          }
-        })
-        navigate(from, {replace: true});
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              alert("data was added");
+            }
+          });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);
@@ -293,7 +296,7 @@ const Register = () => {
               </div>
               <div className="flex items-center mt-6 -mx-2">
                 <button
-                onClick={handleGoogle}
+                  onClick={handleGoogle}
                   type="button"
                   className="flex items-center justify-center w-full px-6 py-2 mx-2 text-sm font-medium text-white transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:bg-blue-400 focus:outline-none"
                 >
