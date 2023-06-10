@@ -14,8 +14,12 @@ import MyClass from "../Pages/DashBoard/InstructorDashBoard/MyClass/MyClass";
 import ManageClasses from "../Pages/DashBoard/AdminDashBoard/ManageClasses/ManageClasses";
 import ManageUser from "../Pages/DashBoard/AdminDashBoard/ManageUsers/ManageUser";
 import PrivateRoute from "./PrivateRoute";
+import Payment from "../Pages/DashBoard/StudentDashBoard/Payment/Payment";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
+import PaymentHistory from "../Pages/DashBoard/StudentDashBoard/PaymentHistory/PaymentHistory";
 
-
+// let {user} = useContext(AuthContext)
 
 const router = createBrowserRouter([
   {
@@ -27,57 +31,67 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path:'/instructors',
-        element:<Instructors></Instructors>
+        path: "/instructors",
+        element: <Instructors></Instructors>,
       },
       {
-        path:'/classes',
-        element:<Classes></Classes>
+        path: "/classes",
+        element: <Classes></Classes>,
       },
       {
-        path:'/login',
-        element: <Login></Login>
+        path: "/login",
+        element: <Login></Login>,
       },
       {
-        path:'/register',
-        element: <Register></Register>
+        path: "/register",
+        element: <Register></Register>,
       },
     ],
   },
   {
-    path: '/dashboard',
-    element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
-    children:[
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashBoard></DashBoard>
+      </PrivateRoute>
+    ),
+    children: [
       {
-        path:'student',
-        element:<SelectedClass></SelectedClass>
+        path: "student",
+        element: <SelectedClass></SelectedClass>,
       },
       {
-        path:'enrolledClass',
-        element:<EnrolledClass></EnrolledClass>
+        path: "enrolledClass",
+        element: <EnrolledClass></EnrolledClass>,
       },
       {
-        path:'addClass',
-        element:<AddClass></AddClass>
+        path:"paymentHistory",
+        element:<PaymentHistory></PaymentHistory>
       },
       {
-        path:'myClass',
-        element:<MyClass></MyClass>
+        path: "addClass",
+        element: <AddClass></AddClass>,
       },
       {
-        path:'manageClasses',
-        element:<ManageClasses></ManageClasses>
+        path: "myClass",
+        element: <MyClass></MyClass>,
       },
       {
-        path:'manageUsers',
-        element:<ManageUser></ManageUser>
+        path: "manageClasses",
+        element: <ManageClasses></ManageClasses>,
       },
-      
-    ]
-  }
+      {
+        path: "manageUsers",
+        element: <ManageUser></ManageUser>,
+      },
+      {
+        path: "pay/:id",
+        element: <Payment></Payment>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/pay/${params.id}`),
+      },
+    ],
+  },
 ]);
 
-
-
-
-export default router ;
+export default router;
