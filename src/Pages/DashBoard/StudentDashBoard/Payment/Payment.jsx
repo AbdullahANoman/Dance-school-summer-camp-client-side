@@ -7,13 +7,11 @@ import CheckoutForm from "./CheckoutForm";
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_PK);
 const Payment = () => {
   const [data] = useLoaderData();
-  const { price, _id } = data || {};
-  console.log("price in payment", data);
   return (
     <div className="w-full">
-      <p className="font-bold text-2xl m-5">Price : {price}</p>
+      <p className="font-bold text-2xl m-5">Price : {data?.price}</p>
       <Elements stripe={stripePromise}>
-        <CheckoutForm price={price} id={_id}></CheckoutForm>
+        <CheckoutForm item={data}></CheckoutForm>
       </Elements>
     </div>
   );

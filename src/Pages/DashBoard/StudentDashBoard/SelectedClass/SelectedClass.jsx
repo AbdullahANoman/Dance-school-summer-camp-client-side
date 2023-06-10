@@ -55,13 +55,13 @@ const SelectedClass = () => {
 //   }
 
   return (
-    <div className="w-full mx-10">
+    <div className="w-full ">
       <p className="text-2xl font-bold m-5">
         My selected class {selectedClass?.length}
       </p>
       <div className="py-10">
         <div className="overflow-x-auto">
-          <table className="table ">
+          <table className="table w-2/3 mx-auto ">
             {/* head */}
             <thead>
               <tr>
