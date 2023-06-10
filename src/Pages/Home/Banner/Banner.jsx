@@ -16,31 +16,105 @@ const Banner = () => {
         className="mySwiper w-full text-white"
       >
         <SwiperSlide>
-        <div className="carousel-item relative w-full">
-        <img
-            className="w-full md:h-[95vh]"
-            src="https://www.dwcworld.com/img/slider/ballet_stretch_2.jpg"
-            alt=""
-          />
-            <div className="absolute flex  gap-2  h-full w-full pl-10 items-center bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] rounded-xl">
-              <div className="text-white space-y-10 w-1/2 ">
-                <h2 className="text-2xl md:text-6xl font-extrabold font-serif">
-                  Fun Toys For <p className="mt-2">Your Kids</p>
-                </h2>
-                <p>
-                  Browse through our huge collection of fun toys, dolls, puzzle
-                  games and more for your kids. Shop, play and create fond
-                  memories with your little ones!
+          <div className="carousel-item relative w-full">
+            <img
+              className="w-full md:h-[95vh] "
+              src="https://www.dwcworld.com/img/slider/ballet_stretch_2.jpg"
+              alt=""
+            />
+            <div className="absolute flex flex-row-reverse  gap-2  h-full w-full pl-96  items-center bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] rounded-xl ">
+              <div className="text-white  w-1/2 pl-5  ">
+                <p
+                  className="uppercase text-2xl mb-0 "
+                  data-aos-duration="200"
+                  data-aos="fade-right"
+                >
+                  Be in the{" "}
                 </p>
-                <div className="">
-                  <button className="btn bg-[#32BDF2] border-none hover:bg-[#FF6A98] mr-5">
-                    Shop Now
+                <p
+                  className="uppercase text-7xl mt-0 font-bold text-[#571F9C] "
+                  data-aos="flip-left"
+                  data-aos-duration="500"
+                >
+                  Spotlight
+                </p>
+                <p
+                  className="font-thin text-xl mb-10 transition duration-300"
+                  data-aos-duration="700"
+                  data-aos="flip-down"
+                >
+                  Learn from the Best-Dance Professionals
+                </p>
+
+                <div className="uppercase text-2xl">
+                  <p>
+                    {" "}
+                    <span data-aos="fade-right" data-aos-duration="2500">
+                      hip-hop-dance _ _ _ _ _ _ _ _ __{" "}
+                    </span>{" "}
+                    &nbsp; &nbsp;{" "}
+                    <div
+                      data-aos="zoom-out"
+                      data-aos-duration="1200"
+                      className="inline h-full w-full"
+                    >
+                      199.00/mo
+                    </div>
+                  </p>
+                  <p>
+                    {" "}
+                    <span data-aos="fade-right" data-aos-duration="2500">
+                      ballet _ _ _ _ _ _ _ _ _ _ _ _ _ __{" "}
+                    </span>{" "}
+                    &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;{" "}
+                    <div
+                      data-aos="zoom-out"
+                      data-aos-duration="1200"
+                      className="inline h-full w-full"
+                    >
+                      199.00/mo
+                    </div>
+                  </p>
+                  <p>
+                    {" "}
+                    <span data-aos="fade-right" data-aos-duration="2500">
+                      break dancing _ _ _ _ _ _ _ _ __{" "}
+                    </span>{" "}
+                    &nbsp; &nbsp;{" "}
+                    <div
+                      data-aos="zoom-out"
+                      data-aos-duration="1200"
+                      className="inline h-full w-full"
+                    >
+                      199.00/mo
+                    </div>
+                  </p>
+                  <p>
+                    {" "}
+                    <span data-aos="fade-right" data-aos-duration="2500">
+                      salsa _ _ _ _ _ _ _ _ __ _ _ _ _ _{" "}
+                    </span>{" "}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{" "}
+                    <div
+                      data-aos="zoom-out"
+                      data-aos-duration="1200"
+                      className="inline h-full w-full"
+                    >
+                      199.00/mo
+                    </div>
+                  </p>
+                </div>
+                <div className="flex gap-10 uppercase mt-10">
+                  <button data-aos="fade-up" data-aos-duration="1500" className="px-6 py-4 text-lg font-semibold uppercase   bg-[#571F9C]">
+                    our service
+                  </button>
+                  <button data-aos="fade-up" data-aos-duration="2000"  className="px-6 py-4 text-lg font-semibold uppercase border   bg-transparent">
+                    get a quote
                   </button>
                 </div>
               </div>
             </div>
           </div>
-          
         </SwiperSlide>
         <SwiperSlide>
           <div className="carousel-item relative w-full">
@@ -50,19 +124,20 @@ const Banner = () => {
               alt=""
             />
             <div className="absolute flex  gap-2  h-full w-full pl-10 items-center bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] rounded-xl">
-              <div className="text-white space-y-10 w-1/2 ">
-                <h2 className="text-2xl md:text-6xl font-extrabold font-serif">
-                  Fun Toys For <p className="mt-2">Your Kids</p>
-                </h2>
-                <p>
-                  Browse through our huge collection of fun toys, dolls, puzzle
-                  games and more for your kids. Shop, play and create fond
-                  memories with your little ones!
+              <div data-aos="fade-up" data-aos-duration="4000" className="text-white space-y-10 w-full">
+                <p className="text-5xl text-center">Create the best moves for you</p>
+                <p className="text-8xl font-bold text-center">
+                  Dance to the beat
                 </p>
                 <div className="">
-                  <button className="btn bg-[#32BDF2] border-none hover:bg-[#FF6A98] mr-5">
-                    Shop Now
+                <div className="flex gap-10 uppercase mt-10 justify-center">
+                  <button data-aos="fade-up" data-aos-duration="1500" className="px-6 py-4 text-lg font-semibold uppercase   bg-[#571F9C]">
+                    our service
                   </button>
+                  <button data-aos="fade-up" data-aos-duration="2000"  className="px-6 py-4 text-lg font-semibold uppercase border   bg-transparent">
+                    get a quote
+                  </button>
+                </div>
                 </div>
               </div>
             </div>
