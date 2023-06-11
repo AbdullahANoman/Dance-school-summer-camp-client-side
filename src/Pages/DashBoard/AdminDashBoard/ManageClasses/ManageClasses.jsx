@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const ManageClasses = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -120,7 +121,7 @@ const ManageClasses = () => {
                   <td className="flex justify-between">
                     <button disabled={item?.status== 'approve' || item?.status == 'deny'} onClick={()=>handleStatusApprove(item)} className="px-4 bg-blue-200 rounded-xl py-1  font-semibold">Approved</button>
                     <button disabled={item?.status == 'deny' || item.status == 'approve'} onClick={()=>handleStatusDeny(item)} className="px-4 bg-red-400 rounded-xl py-1  font-semibold">Deny</button>
-                    <button  className="px-4 bg-purple-400 rounded-xl py-1  font-semibold">Send Feedback</button>
+                    <Link to={`/dashboard/feedback/${item?._id}`}><button  className="px-4 bg-purple-400 rounded-xl py-1  font-semibold">Send Feedback</button></Link>
                   </td>
                 </tr>
               ))}

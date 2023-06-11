@@ -13,6 +13,16 @@ const MyClass = () => {
       return res.data;
     }
   );
+  console.log('instructors are here' , instructors)
+  const { data: enrolledStudents = [],  } = useQuery(
+    ["enrolled"],
+    async () => {
+      const res = await axiosSecure.get(`/enrolled/${user?.email}`);
+      return res.data;
+    }
+  );
+
+  console.log("enrolledStudents are here", enrolledStudents)
 
   console.log("instructors in my class", instructors);
   return (
@@ -20,7 +30,7 @@ const MyClass = () => {
       <p className="font-bold text-2xl m-5">
         My Total Added Class {instructors?.length}
       </p>
-      <p className="font-bold text-xl m-5">Total Enrolled students 0</p>
+      <p className="font-bold text-xl m-5">Total Enrolled students {enrolledStudents?.length}</p>
       <div className="mx-10">
         <div className="overflow-x-auto">
           <table className="table">

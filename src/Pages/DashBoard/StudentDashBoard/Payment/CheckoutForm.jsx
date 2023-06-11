@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider/AuthProvider";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 const CheckoutForm = ({item}) => {
-    const {price,_id, image, classesName,seats,selectItemId,instructorName} = item;
+    const {price,_id, image, classesName,seats,selectItemId,instructorName,email} = item;
   const { user } = useContext(AuthContext);
   //   const [cart] = useCart();
   //   const total = cart.reduce((sum, item) => sum + item.price, 0);
@@ -75,7 +75,8 @@ const CheckoutForm = ({item}) => {
           price,
           image,
           classesName,
-          instructorName
+          instructorName,
+          instructorEmail : email
         };
         // fetch('http://localhost:5000/payments',{
         //   method : 'POST',

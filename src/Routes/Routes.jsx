@@ -18,6 +18,7 @@ import Payment from "../Pages/DashBoard/StudentDashBoard/Payment/Payment";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import PaymentHistory from "../Pages/DashBoard/StudentDashBoard/PaymentHistory/PaymentHistory";
+import Feedback from "../Pages/DashBoard/AdminDashBoard/ManageClasses/Feedback";
 
 // let {user} = useContext(AuthContext)
 
@@ -65,8 +66,8 @@ const router = createBrowserRouter([
         element: <EnrolledClass></EnrolledClass>,
       },
       {
-        path:"paymentHistory",
-        element:<PaymentHistory></PaymentHistory>
+        path: "paymentHistory",
+        element: <PaymentHistory></PaymentHistory>,
       },
       {
         path: "addClass",
@@ -87,8 +88,13 @@ const router = createBrowserRouter([
       {
         path: "pay/:id",
         element: <Payment></Payment>,
+        loader: ({ params }) => fetch(`http://localhost:5000/pay/${params.id}`),
+      },
+      {
+        path: "feedback/:id",
+        element: <Feedback></Feedback>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/pay/${params.id}`),
+          fetch(`http://localhost:5000/feedback/${params.id}`),
       },
     ],
   },
