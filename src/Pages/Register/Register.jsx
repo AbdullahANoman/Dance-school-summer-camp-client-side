@@ -31,7 +31,7 @@ const Register = () => {
           console.log("registered user ", user);
           updatePhotoAndName(name, photoUrl)
             .then(() => {
-              const saveUser = { name: name, email: email, role: "Student" };
+              const saveUser = { image : photoUrl ,name: name, email: email, role: "Student" };
               console.log(saveUser);
               fetch("http://localhost:5000/users", {
                 method: "POST",
@@ -70,6 +70,7 @@ const Register = () => {
       .then((result) => {
         const googleLoggedUser = result.user;
         const saveUser = {
+          image : googleLoggedUser.photoURL,
           name: googleLoggedUser.displayName,
           email: googleLoggedUser.email,
           role: "Student",

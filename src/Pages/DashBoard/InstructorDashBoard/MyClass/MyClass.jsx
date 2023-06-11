@@ -65,9 +65,9 @@ const MyClass = () => {
                   <td>
                     {instructor.classesName}
                   </td>
-                  <td ><span className={`px-2  text-white py-1 font-semibold rounded ${instructor?.status == 'pending' && 'bg-yellow-400'} ${instructor?.status== 'approve' && 'bg-blue-400'} ${instructor?.status == 'deny' && 'bg-red-400'}`}>{instructor?.status}</span></td>
+                  <td ><span className={`px-2  text-white py-1 font-semibold rounded ${instructor?.status == 'pending' && 'bg-yellow-400'} ${instructor?.status== 'approve' && 'bg-blue-400'} ${instructor?.status == 'deny' && 'bg-red-400 px-5'}`}>{instructor?.status}</span></td>
                   <th>
-                    <button className="btn btn-ghost btn-xs">details</button>
+                    {instructor?.status == 'deny' && instructor?.feedBack || 'No Feed Back'}
                   </th>
                 </tr>
               ))}

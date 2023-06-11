@@ -19,6 +19,7 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import PaymentHistory from "../Pages/DashBoard/StudentDashBoard/PaymentHistory/PaymentHistory";
 import Feedback from "../Pages/DashBoard/AdminDashBoard/ManageClasses/Feedback";
+import Error from "../Pages/Error/Error";
 
 // let {user} = useContext(AuthContext)
 
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",
@@ -56,6 +58,7 @@ const router = createBrowserRouter([
         <DashBoard></DashBoard>
       </PrivateRoute>
     ),
+    errorElement: <Error></Error>,
     children: [
       {
         path: "student",

@@ -5,6 +5,8 @@ import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import useAdmin from "../../../Hooks/useAdmin";
+import useInstructor from "../../../Hooks/useInstructor";
 
 const Classes = () => {
   const navigate = useNavigate();
@@ -20,7 +22,10 @@ const Classes = () => {
   );
   console.log("filtered class ", filteredClasses);
 
+  const [isAdmin] =useAdmin();
+  const [isInstructor] = useInstructor();
 
+  console.log('from classes page ', isAdmin, isInstructor)
   const handleSelect = (item) =>{
     const userEmail = `${user?.email}`
     const {_id,classesName,instructorName,status,price,image,email,seats} = item || {}
@@ -97,7 +102,7 @@ const Classes = () => {
             <h2 className="text-[18px] font-semibold">Available Seats : {classes?.seats}</h2>
             <p>Price : $ {classes?.price}</p>
             <div className="card-actions">
-              <button onClick={()=>handleSelect(classes)} disabled={classes?.seats==0} className="btn btn-primary">Select</button>
+              <button onClick={()=>handleSelect(classes)} disabled={classes?.seats==0 || isAdmin || isInstructor} className="btn btn-primary">Select</button>
             </div>
           </div>
         </div>

@@ -9,6 +9,7 @@ const ManageUser = () => {
     const res = await axiosSecure.get("/users");
     return res.data;
   });
+  console.log(regUsers)
   const handleUpdateAdmin = (user) => {
     Swal.fire({
       title: "Are you sure?",
@@ -68,8 +69,10 @@ const ManageUser = () => {
           <thead>
             <tr>
               <th>No.</th>
+              <th>Image</th>
               <th>Name</th>
               <th>Email</th>
+              <th>Role</th>
               <th>Action</th>
               <th>Action</th>
             </tr>
@@ -78,8 +81,23 @@ const ManageUser = () => {
             {regUsers?.map((regUser, index) => (
               <tr>
                 <th>{index + 1}</th>
+                <td>
+                  <div className="avatar">
+                    <div className="mask mask-squircle w-12 h-12">
+                      <img
+                        src={regUser?.image}
+                        alt="Avatar Tailwind CSS Component"
+                      />
+                    </div>
+                  </div>
+                </td>
                 <td>{regUser?.name}</td>
                 <td>{regUser?.email}</td>
+                <td>
+                  {(regUser?.role == "admin" && "Admin") ||
+                    (regUser?.role == "instructor" && "Instructor") ||
+                    (regUser?.role == "Student" && "Student")}
+                </td>
                 <td>
                   <button
                     onClick={() => handleUpdateAdmin(regUser)}
@@ -93,7 +111,7 @@ const ManageUser = () => {
                   <button
                     onClick={() => handleUpdateInstructor(regUser)}
                     className="btn btn-accent"
-                    disabled={regUser?.role ==='instructor'}
+                    disabled={regUser?.role === "instructor"}
                   >
                     Make Instructor
                   </button>

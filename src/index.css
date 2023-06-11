@@ -4,7 +4,7 @@
 
 
 .active {
-  @apply font-bold text-[#FF6AAF] tracking-wide  transition-colors duration-200  border-b-2 border-[#FF6AAF];
+  @apply font-bold text-black px-2 bg-white tracking-wide  transition-colors duration-300  border-b-2 border-purple-600;
 }
 .my-container {
   @apply px-4  mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-8;

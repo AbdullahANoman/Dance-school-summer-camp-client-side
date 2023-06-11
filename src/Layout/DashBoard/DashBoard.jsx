@@ -21,11 +21,15 @@ import { AuthContext } from "../../Provider/AuthProvider/AuthProvider";
 const DashBoard = () => {
   //   const [isAdmin] = useAdmin();
   //   console.log(isAdmin);
-  const {user} = useContext(AuthContext)
+  const {user,logOut} = useContext(AuthContext)
     
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
   const [isStudent] = useStudent();
+
+  const handleLogout = ()=>{
+    logOut()
+  }
 
   console.log('admin inst',isAdmin,isInstructor,isStudent)
 
@@ -42,14 +46,14 @@ const DashBoard = () => {
         </label>
         <Outlet></Outlet>
       </div>
-      <div className="drawer-side bg-[#D1A054] uppercase pt-10">
+      <div className="drawer-side  uppercase pt-10 bg-gradient-to-r from-[rgba(2,15,29,1)] text-white to-[rgba(0,212,255,1)]" >
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <div className="flex justify-center ">
           <img src={user?.photoURL} alt="" className="w-40 rounded-full " />
         </div>
         <p className="text-center mt-5 font-semibold">{user?.displayName}</p>
         <p className="text-center mt-2 font-bold ">{isStudent&& 'Student' || isAdmin && 'Admin' || isInstructor && 'Instructor'}</p>
-        <ul className="menu p-4 w-80 h-full text-base-content bg-[#D1A054] uppercase">
+        <ul className="menu p-4 w-80 h-full  uppercase">
           {isStudent && (
             <>
               <li>
@@ -67,21 +71,6 @@ const DashBoard = () => {
                   <ImSpoonKnife></ImSpoonKnife> Payment History
                 </NavLink>
               </li>
-              <li>
-                <NavLink to="/dashboard/manageItems">
-                  <FaBars></FaBars>Manage Items
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/cart">
-                  <FaBook></FaBook> Manage Bookings
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/allusers">
-                  <FaUsers></FaUsers> All Users
-                </NavLink>
-              </li>
             </>
           )}
 
@@ -95,21 +84,6 @@ const DashBoard = () => {
               <li>
                 <NavLink to="/dashboard/myClass">
                   <ImSpoonKnife></ImSpoonKnife> My Classes
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/manageItems">
-                  <FaBars></FaBars>Manage Items
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/cart">
-                  <FaBook></FaBook> Manage Bookings
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/allusers">
-                  <FaUsers></FaUsers> All Users
                 </NavLink>
               </li>
             </>
@@ -126,21 +100,6 @@ const DashBoard = () => {
                   <ImSpoonKnife></ImSpoonKnife> Manage users
                 </NavLink>
               </li>
-              <li>
-                <NavLink to="/dashboard/manageItems">
-                  <FaBars></FaBars>Manage Items
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/cart">
-                  <FaBook></FaBook> Manage Bookings
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/allusers">
-                  <FaUsers></FaUsers> All Users
-                </NavLink>
-              </li>
             </>
           )}
 
@@ -151,18 +110,18 @@ const DashBoard = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/">
-              <FaBars></FaBars>Menu
+            <NavLink to="/instructors">
+              <FaBars></FaBars>Instructors
             </NavLink>
           </li>
           <li>
-            <NavLink to="/">
-              <FaShoppingBag></FaShoppingBag> Shop
+            <NavLink to="/classes">
+              <FaShoppingBag></FaShoppingBag> Classes
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/">
-              <FaMailBulk></FaMailBulk> Contact
+          <li onClick={()=>handleLogout()}>
+            <NavLink to='/'>
+              <FaMailBulk></FaMailBulk> LogOut
             </NavLink>
           </li>
         </ul>

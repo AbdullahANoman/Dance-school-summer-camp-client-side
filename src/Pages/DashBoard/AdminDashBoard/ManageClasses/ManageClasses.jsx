@@ -94,6 +94,7 @@ const ManageClasses = () => {
                 <th className="">Instructor Email</th>
                 <th className="">Available Seats</th>
                 <th className="">Price</th>
+                <th className="">Status</th>
                 <th className="text-center">Action</th>
               </tr>
             </thead>
@@ -118,6 +119,7 @@ const ManageClasses = () => {
                   <td>{item?.email}</td>
                   <td>{item?.seats}</td>
                   <td>{item?.price}</td>
+                  <td>{item?.status == 'approve' && 'Approve' || item?.status == 'pending' && 'Pending' || item?.status =='deny' && 'Denied' }</td>
                   <td className="flex justify-between">
                     <button disabled={item?.status== 'approve' || item?.status == 'deny'} onClick={()=>handleStatusApprove(item)} className="px-4 bg-blue-200 rounded-xl py-1  font-semibold">Approved</button>
                     <button disabled={item?.status == 'deny' || item.status == 'approve'} onClick={()=>handleStatusDeny(item)} className="px-4 bg-red-400 rounded-xl py-1  font-semibold">Deny</button>
