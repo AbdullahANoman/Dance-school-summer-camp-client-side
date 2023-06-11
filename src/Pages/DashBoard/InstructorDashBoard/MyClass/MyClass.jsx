@@ -22,6 +22,7 @@ const MyClass = () => {
     }
   );
 
+ 
   console.log("enrolledStudents are here", enrolledStudents)
 
   console.log("instructors in my class", instructors);
@@ -41,6 +42,7 @@ const MyClass = () => {
                 <th>Image</th>
                 <th>Class Name</th>
                 <th>Status</th>
+                <th>Action</th>
                 <th>FeedBack</th>
               </tr>
             </thead>
@@ -67,8 +69,12 @@ const MyClass = () => {
                   </td>
                   <td ><span className={`px-2  text-white py-1 font-semibold rounded ${instructor?.status == 'pending' && 'bg-yellow-400'} ${instructor?.status== 'approve' && 'bg-blue-400'} ${instructor?.status == 'deny' && 'bg-red-400 px-5'}`}>{instructor?.status}</span></td>
                   <th>
+                        <button  className="px-2 bg-blue-400 py-2 text-white rounded">Update</button>
+                    </th>
+                  <th>
                     {instructor?.status == 'deny' && instructor?.feedBack || 'No Feed Back'}
                   </th>
+                    
                 </tr>
               ))}
             </tbody>
