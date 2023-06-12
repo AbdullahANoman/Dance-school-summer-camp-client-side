@@ -22,4 +22,4 @@ The Dance School website is an online platform that offers a wide range of educa
 
 ## Live Link
 
-Hosted in FireBase -> [ToyTutors](https://summer-camp-with-dance-class.web.app/)
+Hosted in FireBase -> [Dance School](https://summer-camp-with-dance-class.web.app/)
