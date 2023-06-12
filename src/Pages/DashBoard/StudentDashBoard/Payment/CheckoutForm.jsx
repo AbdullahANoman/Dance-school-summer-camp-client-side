@@ -5,8 +5,19 @@ import { useEffect } from "react";
 
 import { AuthContext } from "../../../../Provider/AuthProvider/AuthProvider";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
-const CheckoutForm = ({item}) => {
-    const {price,_id, image, classesName,seats,selectItemId,instructorName,email} = item;
+const CheckoutForm = ({ item }) => {
+  const {
+    price,
+    _id,
+    image,
+    classesName,
+    seats,
+    selectItemId,
+    instructorName,
+    email,
+    
+  } = item;
+  console.log(item)
   const { user } = useContext(AuthContext);
   //   const [cart] = useCart();
   //   const total = cart.reduce((sum, item) => sum + item.price, 0);
@@ -18,6 +29,7 @@ const CheckoutForm = ({item}) => {
   const [cardError, setCardError] = useState("");
   const [cardSuccess, setCardSuccess] = useState("");
   const [processing, setProcessing] = useState(false);
+  const newData = {value : 1};
 
   useEffect(() => {
     axiosSecure.post("/create-payment-intent", { price }).then((res) => {
@@ -25,7 +37,6 @@ const CheckoutForm = ({item}) => {
     });
   }, []);
   const handleSubmit = async (event) => {
-    
     setProcessing(true);
     event.preventDefault();
 
@@ -76,8 +87,10 @@ const CheckoutForm = ({item}) => {
           image,
           classesName,
           instructorName,
-          instructorEmail : email
+          instructorEmail: email,
         };
+        axiosSecure.post(`/enrolled/${selectItemId}`, newData)
+        .then(data=>console.log(data))
         // fetch('http://localhost:5000/payments',{
         //   method : 'POST',
         //   headers : {

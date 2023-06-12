@@ -14,6 +14,8 @@ const EnrolledClass = () => {
     }
   );
 
+  
+
   console.log(enrolledClasses);
   return (
     <div className="w-full">
