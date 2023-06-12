@@ -42,7 +42,7 @@ const Login = () => {
         const googleLoggedUser = result.user;
         const saveUser = {image:googleLoggedUser.photoURL, name: googleLoggedUser.displayName, email: googleLoggedUser.email, role: 'Student'}
         console.log(googleLoggedUser);
-        fetch('http://localhost:5000/users',{
+        fetch('https://summer-camp-server-tau.vercel.app/users',{
           method: 'POST',
           headers: {
             'content-type': 'application/json'

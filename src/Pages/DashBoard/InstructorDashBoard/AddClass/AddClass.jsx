@@ -65,7 +65,7 @@ const AddClass = () => {
     });
   };
   return (
-    <div className="w-4/5 bg-gray-200 px-10 py-20 rounded-xl">
+    <div className=" bg-gray-200 px-20 h-[100vh] py-20 rounded-xl w-full">
       <form onSubmit={handleSubmit(onSubmit)} className="w-full">
         <div className="flex w-full gap-2">
           <div className="form-control w-1/2">

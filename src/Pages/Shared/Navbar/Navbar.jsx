@@ -14,6 +14,8 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   // console.log(userName, userPhotoUrl);
   console.log(user);
+  // const {photoURL,displayName} = user
+  console.log(user)
   const handleLogout = () => {
     logOut();
   };
@@ -46,7 +48,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/"
-                className={({ isActive }) => (isActive ? "active" : "default")}
+                className={({ isActive }) => (isActive ? "active1" : "default")}
                 title="Home"
               >
                 Home
@@ -55,7 +57,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/instructors"
-                className={({ isActive }) => (isActive ? "active" : "default")}
+                className={({ isActive }) => (isActive ? "active1" : "default")}
                 title="Instructors"
               >
                 Instructors
@@ -64,7 +66,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/classes"
-                className={({ isActive }) => (isActive ? "active" : "default")}
+                className={({ isActive }) => (isActive ? "active1" : "default")}
                 title="Classes"
               >
                 Classes
@@ -76,7 +78,7 @@ const Navbar = () => {
                   <NavLink
                     to="/dashBoard/student"
                     className={({ isActive }) =>
-                      isActive ? "active" : "default"
+                      isActive ? "active1" : "default"
                     }
                     title="My Toys"
                   >
@@ -91,7 +93,7 @@ const Navbar = () => {
                   <NavLink
                     to="/dashBoard/addClass"
                     className={({ isActive }) =>
-                      isActive ? "active" : "default"
+                      isActive ? "active1" : "default"
                     }
                     title="My Toys"
                   >
@@ -106,7 +108,7 @@ const Navbar = () => {
                   <NavLink
                     to="/dashBoard/manageClasses"
                     className={({ isActive }) =>
-                      isActive ? "active" : "default"
+                      isActive ? "active1" : "default"
                     }
                     title="My Toys"
                   >
@@ -118,7 +120,7 @@ const Navbar = () => {
           </ul>
           <div className="hidden lg:flex">
             <div
-              className={({ isActive }) => (isActive ? "active" : "default")}
+              className={({ isActive }) => (isActive ? "active1" : "default")}
             >
               {user ? (
                 <>
@@ -168,7 +170,7 @@ const Navbar = () => {
                     <div>
                       <Link to="/" className="inline-flex items-center">
                         <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                          ToyTutors
+                          Dance School
                         </span>
                       </Link>
                     </div>
@@ -192,32 +194,26 @@ const Navbar = () => {
                         </Link>
                       </li>
                       <li className="text-black">
-                        <Link to="/allToys" className="default">
-                          All Toys
+                        <Link to="/instructors" className="default">
+                          Instructors
+                        </Link>
+                      </li>
+                      <li className="text-black">
+                        <Link to="/classes" className="default">
+                          Classes
                         </Link>
                       </li>
                       {user && (
                         <>
                           <li className="text-black">
-                            <Link to="/myToys" className="default">
-                              My Toys
+                            <Link to="/dashboard" className="default">
+                              Dashboard
                             </Link>
                           </li>
-                          <li className="text-black">
-                            <Link to="/addToys" className="default">
-                              Add Toys
-                            </Link>
-                          </li>
+                          
                         </>
                       )}
-                      <li>
-                        <Link
-                          to="/blog"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400"
-                        >
-                          Blog
-                        </Link>
-                      </li>
+                      
                       <li>
                         <div
                           className={({ isActive }) =>
@@ -229,9 +225,9 @@ const Navbar = () => {
                               <div className="flex items-center gap-2">
                                 <div className="w-8  rounded-full">
                                   <img
-                                    src={userPhotoUrl}
+                                    src={user?.photoURL}
                                     className="rounded-full "
-                                    title={userName}
+                                    title={user?.displayName}
                                   />
                                 </div>
 

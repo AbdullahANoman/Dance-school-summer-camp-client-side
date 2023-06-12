@@ -91,7 +91,7 @@ const CheckoutForm = ({ item }) => {
         };
         axiosSecure.post(`/enrolled/${selectItemId}`, newData)
         .then(data=>console.log(data))
-        // fetch('http://localhost:5000/payments',{
+        // fetch('https://summer-camp-server-tau.vercel.app/payments',{
         //   method : 'POST',
         //   headers : {
         //     'content-type' : 'application/json'

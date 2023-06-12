@@ -23,7 +23,7 @@ const Register = () => {
     const { name, photoUrl, password, confirmPassword, email } = data || {};
     if (password != confirmPassword) {
       setPassError("Confirm Password Does Not Match");
-      console.log('in setpass')
+      console.log("in setpass");
     } else {
       setPassError("");
       createUser(email, password)
@@ -32,9 +32,14 @@ const Register = () => {
           console.log("registered user ", user);
           updatePhotoAndName(name, photoUrl)
             .then(() => {
-              const saveUser = { image : photoUrl ,name: name, email: email, role: "Student" };
+              const saveUser = {
+                image: photoUrl,
+                name: name,
+                email: email,
+                role: "Student",
+              };
               console.log(saveUser);
-              fetch("http://localhost:5000/users", {
+              fetch("https://summer-camp-server-tau.vercel.app/users", {
                 method: "POST",
                 headers: {
                   "content-type": "application/json",
@@ -46,7 +51,7 @@ const Register = () => {
                   console.log("user added data", data);
                   if (data.insertedId) {
                     Swal.fire({
-                      title: "User Created Successfully . Please Login",
+                      title: "User Created Successfully . ",
                       showClass: {
                         popup: "animate__animated animate__fadeInDown",
                       },
@@ -54,10 +59,10 @@ const Register = () => {
                         popup: "animate__animated animate__fadeOutUp",
                       },
                     });
+                    reset();
+                    navigate("/");
                   }
                 });
-              reset();
-              navigate(from, { replace: true });
             })
             .catch((error) => console.log(error.message));
         })
@@ -71,13 +76,13 @@ const Register = () => {
       .then((result) => {
         const googleLoggedUser = result.user;
         const saveUser = {
-          image : googleLoggedUser.photoURL,
+          image: googleLoggedUser.photoURL,
           name: googleLoggedUser.displayName,
           email: googleLoggedUser.email,
           role: "Student",
         };
         console.log(googleLoggedUser);
-        fetch("http://localhost:5000/users", {
+        fetch("https://summer-camp-server-tau.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -313,8 +318,6 @@ const Register = () => {
                     Sign in with Google
                   </span>
                 </button>
-
-                
               </div>
 
               <div className="mt-6 text-center ">

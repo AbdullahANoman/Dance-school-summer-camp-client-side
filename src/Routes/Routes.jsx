@@ -102,13 +102,13 @@ const router = createBrowserRouter([
       {
         path: "pay/:id",
         element: <Payment></Payment>,
-        loader: ({ params }) => fetch(`http://localhost:5000/pay/${params.id}`),
+        loader: ({ params }) => fetch(`https://summer-camp-server-tau.vercel.app/pay/${params.id}`),
       },
       {
         path: "feedback/:id",
         element: <Feedback></Feedback>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/feedback/${params.id}`),
+          fetch(`https://summer-camp-server-tau.vercel.app/feedback/${params.id}`),
       },
     ],
   },

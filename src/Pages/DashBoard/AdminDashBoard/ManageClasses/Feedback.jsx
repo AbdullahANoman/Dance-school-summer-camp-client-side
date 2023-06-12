@@ -33,7 +33,7 @@ const Feedback = () => {
           .post(`/updateFeedback/${_id}`, newData)
           .then((data) => {
             if(data.data.modifiedCount>0){
-                Swal.fire("Deleted!", "Your feedback has been posted to your instructor .", "success");
+                Swal.fire("Posted!", "Your feedback has been posted to your instructor .", "success");
                 form.feedback.value = ''
             }
           });

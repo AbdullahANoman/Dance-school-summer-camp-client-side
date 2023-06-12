@@ -149,7 +149,7 @@ const Banner = () => {
             </div>
           </div>
         </SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
+        
         
       </Swiper>
     </>

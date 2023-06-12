@@ -6,10 +6,12 @@ import PopularClasses from "../PopularClasses/PopularClasses";
 import PopularInstructor from "../PopularInstructor/PopularInstructor";
 
 
+
 const Home = () => {
   useTitle("Home");
   return (
     <>
+   
       <Banner></Banner>
       <Container>
         <PopularClasses></PopularClasses>

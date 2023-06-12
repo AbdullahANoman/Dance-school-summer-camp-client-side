@@ -9,6 +9,10 @@ import {
   FaMailBulk,
   FaUsers,
   FaBook,
+  FaCcAmazonPay,
+  FaHeart,
+  FaHouseUser,
+  FaDotCircle,
 } from "react-icons/fa";
 import { ImSpoonKnife } from "react-icons/im";
 import { NavLink, Outlet } from "react-router-dom";
@@ -63,12 +67,12 @@ const DashBoard = () => {
               </li>
               <li>
                 <NavLink to="/dashboard/enrolledClass">
-                  <ImSpoonKnife></ImSpoonKnife> My Enrolled Classes
+                  <FaHeart></FaHeart> My Enrolled Classes
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/dashboard/paymentHistory">
-                  <ImSpoonKnife></ImSpoonKnife> Payment History
+                <FaCcAmazonPay></FaCcAmazonPay> Payment History
                 </NavLink>
               </li>
             </>
@@ -83,7 +87,7 @@ const DashBoard = () => {
               </li>
               <li>
                 <NavLink to="/dashboard/myClass">
-                  <ImSpoonKnife></ImSpoonKnife> My Classes
+                  <FaDotCircle></FaDotCircle> My Classes
                 </NavLink>
               </li>
             </>
@@ -97,7 +101,7 @@ const DashBoard = () => {
               </li>
               <li>
                 <NavLink to="/dashboard/manageUsers">
-                  <ImSpoonKnife></ImSpoonKnife> Manage users
+                 <FaHouseUser></FaHouseUser> Manage users
                 </NavLink>
               </li>
             </>

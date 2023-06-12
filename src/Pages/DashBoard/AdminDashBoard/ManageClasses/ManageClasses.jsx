@@ -24,7 +24,7 @@ const ManageClasses = () => {
       }).then((result) => {
         if (result.isConfirmed) {
            
-            fetch(`http://localhost:5000/classes/status/approve/${_id}`,{
+            fetch(`https://summer-camp-server-tau.vercel.app/classes/status/approve/${_id}`,{
                 method: 'PATCH'
             })
             .then(res=>res.json())
@@ -57,7 +57,7 @@ const ManageClasses = () => {
       }).then((result) => {
         if (result.isConfirmed) {
            
-            fetch(`http://localhost:5000/classes/status/deny/${_id}`,{
+            fetch(`https://summer-camp-server-tau.vercel.app/classes/status/deny/${_id}`,{
                 method: 'PATCH'
             })
             .then(res=>res.json())

@@ -29,7 +29,7 @@ const SelectedClass = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/student/${user?.email}/${item._id}`, {
+        fetch(`https://summer-camp-server-tau.vercel.app/student/${user?.email}/${item._id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -49,7 +49,7 @@ const SelectedClass = () => {
   };
 
 //   const handlePay = item =>{
-//     fetch(`http://localhost:5000/student/${user?.email}/${item._id}`)
+//     fetch(`https://summer-camp-server-tau.vercel.app/student/${user?.email}/${item._id}`)
 //     .then(res=>res.json())
 //     .then(data=>console.log(data))
 //   }

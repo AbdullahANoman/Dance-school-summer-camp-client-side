@@ -41,7 +41,7 @@ const Classes = () => {
         price,
         userEmail
       };
-      fetch(`http://localhost:5000/student/${user?.email}`, {
+      fetch(`https://summer-camp-server-tau.vercel.app/student/${user?.email}`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -77,22 +77,14 @@ const Classes = () => {
       })
     }
     
-    // fetch(`http://localhost:5000/student/${user?.email}`,{
-    //     method:'POST',
-    //     headers:{
-    //         'content-type' : 'application/json'
-    //     },
-    //     body: JSON.stringify(item)
-    // })
-    // .then(res=>res.json())
-    // .then(data=>console.log(data))
+ 
   }
   return (
     <div>
       <BannerClasses></BannerClasses>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-10 gap-10 mx-10 justify-evenly py-20">
         {filteredClasses.map((classes) => (
-          <div className={(classes?.seats == 0 ? "card w-96 bg-base-100 shadow-xl shadow-red-800" : "card w-96 bg-base-100 shadow-xl")}>
+          <div className={(classes?.seats == 0 ? "card w-96 bg-red-400 shadow-xl shadow-red-800" : "card w-96 bg-base-100 shadow-xl")}>
           <figure className="px-10 pt-10">
             <img src={classes?.image} alt="Shoes"className="object-cover w-full h-48 mt-2 rounded-xl" />
           </figure>
