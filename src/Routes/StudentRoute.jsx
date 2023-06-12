@@ -2,6 +2,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import useStudent from "../Hooks/useStudent";
+import LoadingSpinner from "../Pages/Shared/LoadSpinner/LoadSpinner";
 
 
 const StudentRoute = ({children}) => {
@@ -9,7 +10,7 @@ const StudentRoute = ({children}) => {
     const [isStudent,isStudentLoading] = useStudent()
     const location = useLocation();
     if(loading || isStudentLoading){
-        <p>Loading....</p>
+        <LoadingSpinner></LoadingSpinner>
     }
     
     if(user && isStudent){

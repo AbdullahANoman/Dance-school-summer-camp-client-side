@@ -1,6 +1,7 @@
 import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import { useContext } from "react";
+import LoadingSpinner from "../Pages/Shared/LoadSpinner/LoadSpinner";
 
 
 const PrivateRoute = ({ children }) => {
@@ -10,7 +11,7 @@ const PrivateRoute = ({ children }) => {
   if (loading) {
     return (
       <>
-        <progress className="progress w-56" value="0" max="100"></progress>
+       <LoadingSpinner></LoadingSpinner>
       </>
     );
   }
