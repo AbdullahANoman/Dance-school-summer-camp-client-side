@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
+import { Bounce, Fade } from "react-awesome-reveal";
 const Banner = () => {
   return (
     <>
@@ -22,7 +23,9 @@ const Banner = () => {
               src="https://www.dwcworld.com/img/slider/ballet_stretch_2.jpg"
               alt=""
             />
+            
             <div className="absolute flex flex-row-reverse  gap-2  h-full w-full pl-96  items-center bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] rounded-xl ">
+              
               <div className="text-white  w-1/2 pl-5  ">
                 <p
                   className="uppercase text-2xl mb-0 "
@@ -46,7 +49,8 @@ const Banner = () => {
                   Learn from the Best-Dance Professionals
                 </p>
 
-                <div className="uppercase text-2xl">
+               <Bounce>
+               <div className="uppercase text-2xl">
                   <p>
                     {" "}
                     <span data-aos="fade-right" data-aos-duration="2500">
@@ -104,6 +108,7 @@ const Banner = () => {
                     </div>
                   </p>
                 </div>
+               </Bounce>
                 <div className="flex gap-10 uppercase mt-10">
                   <button data-aos="fade-up" data-aos-duration="1500" className="px-6 py-4 text-lg font-semibold uppercase   bg-[#571F9C]">
                     our service
@@ -114,6 +119,7 @@ const Banner = () => {
                 </div>
               </div>
             </div>
+         
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -126,9 +132,9 @@ const Banner = () => {
             <div className="absolute flex  gap-2  h-full w-full pl-10 items-center bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] rounded-xl">
               <div data-aos="fade-up" data-aos-duration="4000" className="text-white space-y-10 w-full">
                 <p className="text-5xl text-center">Create the best moves for you</p>
-                <p className="text-8xl font-bold text-center">
+                <Fade><p className="text-8xl font-bold text-center">
                   Dance to the beat
-                </p>
+                </p></Fade>
                 <div className="">
                 <div className="flex gap-10 uppercase mt-10 justify-center">
                   <button data-aos="fade-up" data-aos-duration="1500" className="px-6 py-4 text-lg font-semibold uppercase   bg-[#571F9C]">
@@ -144,13 +150,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        
       </Swiper>
     </>
   );
