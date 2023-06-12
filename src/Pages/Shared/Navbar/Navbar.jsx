@@ -2,9 +2,10 @@ import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
-import useAdmin from "../../../Hooks/useAdmin";
+
 import useInstructor from "../../../Hooks/useInstructor";
 import useStudent from "../../../Hooks/useStudent";
+import useAdmin from "../../../hooks/useAdmin";
 
 
 const Navbar = () => {

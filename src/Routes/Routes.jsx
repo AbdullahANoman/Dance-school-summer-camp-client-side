@@ -20,6 +20,9 @@ import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import PaymentHistory from "../Pages/DashBoard/StudentDashBoard/PaymentHistory/PaymentHistory";
 import Feedback from "../Pages/DashBoard/AdminDashBoard/ManageClasses/Feedback";
 import Error from "../Pages/Error/Error";
+import InstructorRoute from "./InstructorRoute";
+import AdminRoute from "./AdminRoute";
+import StudentRoute from "./StudentRoute";
 
 // let {user} = useContext(AuthContext)
 
@@ -62,31 +65,39 @@ const router = createBrowserRouter([
     children: [
       {
         path: "student",
-        element: <SelectedClass></SelectedClass>,
+        element: <StudentRoute><SelectedClass></SelectedClass></StudentRoute>,
       },
       {
         path: "enrolledClass",
-        element: <EnrolledClass></EnrolledClass>,
+        element:<StudentRoute><EnrolledClass></EnrolledClass></StudentRoute>,
       },
       {
         path: "paymentHistory",
-        element: <PaymentHistory></PaymentHistory>,
+        element: <StudentRoute><PaymentHistory></PaymentHistory></StudentRoute>,
       },
       {
         path: "addClass",
-        element: <AddClass></AddClass>,
+        element: (
+          <InstructorRoute>
+            <AddClass></AddClass>
+          </InstructorRoute>
+        ),
       },
       {
         path: "myClass",
-        element: <MyClass></MyClass>,
+        element: (
+          <InstructorRoute>
+            <MyClass></MyClass>
+          </InstructorRoute>
+        ),
       },
       {
         path: "manageClasses",
-        element: <ManageClasses></ManageClasses>,
+        element: <AdminRoute><ManageClasses></ManageClasses></AdminRoute>,
       },
       {
         path: "manageUsers",
-        element: <ManageUser></ManageUser>,
+        element: <AdminRoute><ManageUser></ManageUser></AdminRoute>,
       },
       {
         path: "pay/:id",
