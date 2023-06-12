@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 const AddClass = () => {
   const { user } = useContext(AuthContext);
 
+  console.log(user)
   const [axiosSecure] = useAxiosSecure();
   const {
     register,
@@ -47,6 +48,7 @@ const AddClass = () => {
               status: "pending",
               price: parseFloat(price),
               image: imgUrl,
+              instructorImage : user?.photoURL,
               email,
               seats: parseFloat(availableSeats),
             };
