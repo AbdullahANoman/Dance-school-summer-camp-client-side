@@ -2,6 +2,13 @@
 
 The Dance School website is an online platform that offers a wide range of educational and learning dance
 
+## Admin Id 
+- Email : abdullahnoman4537@gmail.com
+- Pass  : Aa!123
+## Server Side Repository 
+
+Dance School Server  -> [Server Side](https://github.com/AbdullahANoman/Dance-school-server-side)
+
 ## Features
 
 - Implement user authentication using JSON Web Tokens (JWT) to securely authenticate users.
