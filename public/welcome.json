@@ -1,0 +1,22 @@
+[
+    {
+        "image" : "https://dance-studio.cmsmasters.net/wp-content/uploads/2015/04/Depositphotos_15547985_original.gif",
+        "name" : "HIP-HOP",
+        "count" : 52
+    },
+    {
+        "image" : "https://dance-studio.cmsmasters.net/wp-content/uploads/2015/04/Depositphotos_14801875_original.gif",
+        "name" : "WALTZ",
+        "count" : 765
+    },
+    {
+        "image" : "https://dance-studio.cmsmasters.net/wp-content/uploads/2015/04/Depositphotos_14803721_original.gif",
+        "name" : "BALLET",
+        "count" : 293
+    },
+    {
+        "image" : "https://dance-studio.cmsmasters.net/wp-content/uploads/2015/04/Depositphotos_36107843_original.gif",
+        "name" : "MODERN",
+        "count" : 555
+    }
+]

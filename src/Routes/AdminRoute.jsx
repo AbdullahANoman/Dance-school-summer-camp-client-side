@@ -1,5 +1,5 @@
 import { Navigate, useLocation } from "react-router-dom";
-import useAdmin from "../hooks/useAdmin";
+import useAdmin from "../Hooks/useAdmin";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import LoadingSpinner from "../Pages/Shared/LoadSpinner/LoadSpinner";

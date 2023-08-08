@@ -5,7 +5,8 @@ import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
 
 import useInstructor from "../../../Hooks/useInstructor";
 import useStudent from "../../../Hooks/useStudent";
-import useAdmin from "../../../hooks/useAdmin";
+import useAdmin from "../../../Hooks/useAdmin";
+// import useAdmin from "../../../hooks/useAdmin";
 
 
 const Navbar = () => {

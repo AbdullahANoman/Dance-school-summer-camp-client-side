@@ -1,0 +1,20 @@
+[
+    {
+        "header": "Learn to Dance",
+        "subHeader" : "Express yourself",
+        "image" : "https://dance-studio.cmsmasters.net/wp-content/uploads/2015/04/1.jpg",
+        "description" :"Cum sociis natoque penatibus et magnis dis parturient ntesmus. Proin vel nibh et elit mollis commodo et nec augue"
+    },
+    {
+        "header": "About our Studio",
+        "subHeader" : "Who we are ",
+        "image" : "https://dance-studio.cmsmasters.net/wp-content/uploads/2015/04/2.jpg",
+        "description" :"Cum sociis natoque penatibus et magnis dis parturient ntesmus. Proin vel nibh et elit mollis commodo et nec augue"
+    },
+    {
+        "header": "Client Reviews",
+        "subHeader" : "Our students say",
+        "image" : "https://dance-studio.cmsmasters.net/wp-content/uploads/2015/04/3.jpg",
+        "description" :"Cum sociis natoque penatibus et magnis dis parturient ntesmus. Proin vel nibh et elit mollis commodo et nec augue"
+    }
+]
