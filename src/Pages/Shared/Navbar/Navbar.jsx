@@ -8,26 +8,24 @@ import useStudent from "../../../Hooks/useStudent";
 import useAdmin from "../../../Hooks/useAdmin";
 // import useAdmin from "../../../hooks/useAdmin";
 
-
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   // const user = false
   const { user, logOut } = useContext(AuthContext);
   // console.log(userName, userPhotoUrl);
-  console.log(user);
+  // console.log(user);
   // const {photoURL,displayName} = user
-  console.log(user)
+  // console.log(user)
   const handleLogout = () => {
     logOut();
   };
-  
 
   // const isStudent = regUsers.find((regUser) => regUser?.email == user?.email);
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
-  const [isStudent] =  useStudent()
+  const [isStudent] = useStudent();
 
-  console.log('in nav' , isAdmin,isInstructor, isStudent)
+  // console.log('in nav' , isAdmin,isInstructor, isStudent)
 
   return (
     <div className="absolute mt-0  bg-transparent   z-10 w-full text-white ">
@@ -145,7 +143,7 @@ const Navbar = () => {
                 </>
               ) : (
                 <Link to="/login">
-                  <button className="btn bg-[#32BDF2] border-none hover:bg-[#FF6A98] hidden lg:flex ">
+                  <button className="btn  border-none hover:bg-[#571F9C] hidden lg:flex ">
                     Login
                   </button>
                 </Link>
@@ -156,20 +154,29 @@ const Navbar = () => {
           {/* Mobile Navbar Section */}
           <div className="lg:hidden">
             {/* Dropdown Open Button */}
-            <button
-              aria-label="Open Menu"
-              title="Open Menu"
-              onClick={() => setIsMenuOpen(true)}
-            >
-              <Bars3BottomRightIcon className="w-5 text-black" />
-            </button>
+            {!isMenuOpen && (
+              <button
+                aria-label="Open Menu"
+                title="Open Menu"
+                onClick={() => setIsMenuOpen(true)}
+              >
+                <Bars3BottomRightIcon
+                  size={36}
+                  className="w-8 font-bold text-white"
+                />
+              </button>
+            )}
             {isMenuOpen && (
               <div className="absolute top-0 left-0 w-full z-10">
                 <div className="p-5 bg-white border rounded shadow-sm">
                   {/* Logo & Button section */}
                   <div className="flex items-center justify-between mb-4">
                     <div>
-                      <Link to="/" className="inline-flex items-center">
+                      <Link
+                        onClick={() => setIsMenuOpen(false)}
+                        to="/"
+                        className="inline-flex items-center"
+                      >
                         <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                           Dance School
                         </span>
@@ -182,39 +189,50 @@ const Navbar = () => {
                         title="Close Menu"
                         onClick={() => setIsMenuOpen(false)}
                       >
-                        <XMarkIcon className="w-5 text-gray-600" />
+                        <XMarkIcon className="w-5 text-black" />
                       </button>
                     </div>
                   </div>
                   {/* Mobile Nav Items Section */}
                   <nav>
                     <ul className="space-y-4">
-                      <li className="text-black">
+                      <li
+                        onClick={() => setIsMenuOpen(false)}
+                        className="text-black"
+                      >
                         <Link to="/" className="default">
                           Home
                         </Link>
                       </li>
-                      <li className="text-black">
+                      <li
+                        onClick={() => setIsMenuOpen(false)}
+                        className="text-black"
+                      >
                         <Link to="/instructors" className="default">
                           Instructors
                         </Link>
                       </li>
-                      <li className="text-black">
+                      <li
+                        onClick={() => setIsMenuOpen(false)}
+                        className="text-black"
+                      >
                         <Link to="/classes" className="default">
                           Classes
                         </Link>
                       </li>
                       {user && (
                         <>
-                          <li className="text-black">
+                          <li
+                            onClick={() => setIsMenuOpen(false)}
+                            className="text-black"
+                          >
                             <Link to="/dashboard" className="default">
                               Dashboard
                             </Link>
                           </li>
-                          
                         </>
                       )}
-                      
+
                       <li>
                         <div
                           className={({ isActive }) =>
@@ -232,17 +250,22 @@ const Navbar = () => {
                                   />
                                 </div>
 
-                                <button
-                                  onClick={handleLogout}
-                                  className="me-3 mb-5 btn-primary"
-                                  variant="light"
-                                >
-                                  Log Out
-                                </button>
+                                <div onClick={() => setIsMenuOpen(false)}>
+                                  <button
+                                    onClick={handleLogout}
+                                    className="me-3 mb-5 btn-primary"
+                                    variant="light"
+                                  >
+                                    Log Out
+                                  </button>
+                                </div>
                               </div>
                             </>
                           ) : (
-                            <Link to="/login">
+                            <Link
+                              onClick={() => setIsMenuOpen(false)}
+                              to="/login"
+                            >
                               <button className="btn-primary hidden lg:flex ">
                                 Login
                               </button>

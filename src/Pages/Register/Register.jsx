@@ -116,7 +116,7 @@ const Register = () => {
             </div>
 
             <div className="flex items-center justify-center mt-6">
-              <p className="text-2xl uppercase"> sign up</p>
+              <p className="text-2xl uppercase text-white"> sign up</p>
             </div>
 
             <div className="relative flex items-center mt-8">
@@ -287,7 +287,7 @@ const Register = () => {
               <input
                 type="submit"
                 value="Sign Up"
-                className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
+                className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 cursor-pointer"
               />
               <div className="flex items-center justify-between mt-4">
                 <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/5"></span>

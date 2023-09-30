@@ -17,3 +17,5 @@ const SingleSection = ({item}) => {
 };
 
 export default SingleSection;
+
+// export function av 
